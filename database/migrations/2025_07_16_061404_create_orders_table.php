@@ -21,7 +21,7 @@ return new class extends Migration {
             $table->decimal('transfer_total', 10, 2)->nullable();
             $table->string('payment_proof_url')->nullable();
             $table->enum('status', ['wait_verif', 'processed', 'completed', 'cancel']);
-            $table->foreignId('user_id')->constrained('users')->nullOnDelete();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->dateTime('verified_at');
             $table->timestamps();
         });
